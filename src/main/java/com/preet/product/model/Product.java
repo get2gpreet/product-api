@@ -4,12 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-@Entity
+@Entity(name = "product")
 @Table(name = "PRODUCT_TBL")
 @Data
 @AllArgsConstructor
@@ -17,14 +14,13 @@ import javax.persistence.Table;
 public class Product {
 
     @Id
-    @GeneratedValue
-    private int id;
-    private String name;
+    private int pid;
+    private String productName;
     private int quantity;
     private long price;
 
-    public Product(String name, int quantity, long price) {
-        this.name = name;
+    public Product(String productName, int quantity, long price) {
+        this.productName = productName;
         this.quantity = quantity;
         this.price = price;
     }
